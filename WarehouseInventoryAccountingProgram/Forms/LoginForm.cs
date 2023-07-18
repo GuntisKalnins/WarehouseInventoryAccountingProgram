@@ -1,4 +1,4 @@
-﻿namespace WarehouseInventoryAccountingProgram
+﻿namespace WarehouseInventoryAccountingProgram.Forms
 {
     using System;
     using System.Windows.Forms;

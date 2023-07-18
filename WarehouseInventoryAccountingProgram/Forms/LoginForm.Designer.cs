@@ -1,4 +1,4 @@
-﻿namespace WarehouseInventoryAccountingProgram
+﻿namespace WarehouseInventoryAccountingProgram.Forms
 {
     partial class LoginForm
     {

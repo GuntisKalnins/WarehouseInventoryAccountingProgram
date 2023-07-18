@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WarehouseInventoryAccountingProgram
+namespace WarehouseInventoryAccountingProgram.Forms
 {
     public partial class DashboardForm : Form
     {

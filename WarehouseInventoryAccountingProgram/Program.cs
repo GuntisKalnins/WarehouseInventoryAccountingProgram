@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace WarehouseInventoryAccountingProgram
+﻿namespace WarehouseInventoryAccountingProgram
 {
+    using System;
+    using System.Windows.Forms;
+    using WarehouseInventoryAccountingProgram.Forms;
+
     internal static class Program
     {
         /// <summary>
