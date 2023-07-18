@@ -14,6 +14,10 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
             connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         }
 
+        /// <summary>
+        /// Retrieves all suppliers from the database.
+        /// </summary>
+        /// <returns>A list of Supplier objects representing the suppliers.</returns>
         public List<Supplier> GetAllSuppliers()
         {
             List<Supplier> suppliers = new List<Supplier>();
@@ -48,23 +52,24 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
             return suppliers;
         }
 
+        /// <summary>
+        /// Adds a stock entry to the database and updates the product quantity in the inventory.
+        /// </summary>
+        /// <param name="stockEntry">The StockEntry object representing the stock entry to be added.</param>
         public void AddStockEntry(StockEntry stockEntry)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                // Prepare the SQL query to insert the stock entry into the database
                 string query = "INSERT INTO StockEntries (ProductID, SupplierID, EntryDate, Quantity) VALUES (@ProductID, @SupplierID, @EntryDate, @Quantity)";
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Set the parameter values
                 command.Parameters.AddWithValue("@ProductID", stockEntry.ProductID);
                 command.Parameters.AddWithValue("@SupplierID", stockEntry.SupplierID);
                 command.Parameters.AddWithValue("@EntryDate", stockEntry.EntryDate);
                 command.Parameters.AddWithValue("@Quantity", stockEntry.Quantity);
 
-                // Execute the query
                 command.ExecuteNonQuery();
 
                 connection.Close();

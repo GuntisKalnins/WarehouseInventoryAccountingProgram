@@ -185,17 +185,15 @@
             {
                 connection.Open();
 
-                string query = "UPDATE Products SET Quantity = @Quantity WHERE ProductID = @ProductID";
+                string query = "UPDATE Products SET Quantity = Quantity + @QuantityToAdd WHERE ProductID = @ProductID";
                 SqlCommand command = new SqlCommand(query, connection);
 
-                command.Parameters.AddWithValue("@Quantity", quantity);
+                command.Parameters.AddWithValue("@QuantityToAdd", quantity);
                 command.Parameters.AddWithValue("@ProductID", productID);
-
                 command.ExecuteNonQuery();
 
                 connection.Close();
             }
-        
         }
     }
 }
