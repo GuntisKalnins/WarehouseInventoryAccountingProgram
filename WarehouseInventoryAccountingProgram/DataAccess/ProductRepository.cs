@@ -173,5 +173,29 @@
                 return rowsAffected > 0;
             }
         }
+
+        /// <summary>
+        /// Updates the quantity of a product in the inventory.
+        /// </summary>
+        /// <param name="productID">The ID of the product.</param>
+        /// <param name="quantity">The new quantity value.</param>
+        public void UpdateProductQuantity(int productID, int quantity)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "UPDATE Products SET Quantity = @Quantity WHERE ProductID = @ProductID";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@Quantity", quantity);
+                command.Parameters.AddWithValue("@ProductID", productID);
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+        
+        }
     }
 }
