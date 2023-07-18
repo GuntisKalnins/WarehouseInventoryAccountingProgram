@@ -29,8 +29,6 @@
         {
             var products = productRepository.GetAllProducts();
 
-            dgvProducts.DataSource = products;
-
             int totalProducts = products.Count;
             int totalQuantity = productRepository.GetTotalQuantity();
 
