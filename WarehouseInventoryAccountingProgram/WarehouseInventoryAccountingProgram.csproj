@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\ProductRepository.cs" />
+    <Compile Include="DataAccess\PurchaseOrderRepository.cs" />
     <Compile Include="DataAccess\SalesRepository.cs" />
     <Compile Include="DataAccess\StockEntryRepository.cs" />
+    <Compile Include="DataAccess\SupplierRepository.cs" />
     <Compile Include="Forms\AddProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +120,7 @@
       <DependentUpon>StockEntryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\PurchaseOrder.cs" />
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\StockEntry.cs" />
     <Compile Include="Models\Supplier.cs" />
@@ -137,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PurchaseForm.resx">
+      <DependentUpon>PurchaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SalesForm.resx">
       <DependentUpon>SalesForm.cs</DependentUpon>
