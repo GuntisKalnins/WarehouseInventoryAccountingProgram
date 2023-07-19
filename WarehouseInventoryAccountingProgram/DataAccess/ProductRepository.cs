@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using WarehouseInventoryAccountingProgram.Models;
-
-namespace WarehouseInventoryAccountingProgram.DataAccess
+﻿namespace WarehouseInventoryAccountingProgram.DataAccess
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Data.SqlClient;
+    using WarehouseInventoryAccountingProgram.Models;
+
     /// <summary>
     /// Provides data access methods for managing products.
     /// </summary>
@@ -85,6 +85,115 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
             }
 
             return totalQuantity;
+        }
+
+        /// <summary>
+        /// Deletes a product from the database based on the provided product ID.
+        /// </summary>
+        /// <param name="productID">The ID of the product to be deleted.</param>
+        /// <returns>True if the product was deleted successfully; otherwise, false.</returns>
+        public bool DeleteProduct(int productID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "DELETE FROM Products WHERE ProductID = @ProductID";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@ProductID", productID);
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                connection.Close();
+
+                return rowsAffected > 0;
+            }
+        }
+
+        /// <summary>
+        /// Updates a product in the database.
+        /// </summary>
+        /// <param name="product">The product to be updated.</param>
+        /// <returns><c>true</c> if the product is successfully updated; otherwise, <c>false</c>.</returns>
+        public bool UpdateProduct(Product product)
+        {
+            bool isUpdated = false;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "UPDATE Products SET ProductName = @ProductName, Quantity = @Quantity, Price = @Price, ExpirationDate = @ExpirationDate WHERE ProductID = @ProductID";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@ProductName", product.ProductName);
+                command.Parameters.AddWithValue("@Quantity", product.Quantity);
+                command.Parameters.AddWithValue("@Price", product.Price);
+                command.Parameters.AddWithValue("@ExpirationDate", product.ExpirationDate);
+                command.Parameters.AddWithValue("@ProductID", product.ProductID);
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    isUpdated = true;
+                }
+
+                connection.Close();
+            }
+
+            return isUpdated;
+        }
+
+        /// <summary>
+        /// Adds a new product to the database.
+        /// </summary>
+        /// <param name="product">The product to add.</param>
+        /// <returns>True if the product is added successfully, false otherwise.</returns>
+        public bool AddProduct(Product product)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "INSERT INTO Products (ProductName, Quantity, Price, ExpirationDate) " +
+                               "VALUES (@ProductName, @Quantity, @Price, @ExpirationDate)";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@ProductName", product.ProductName);
+                command.Parameters.AddWithValue("@Quantity", product.Quantity);
+                command.Parameters.AddWithValue("@Price", product.Price);
+                command.Parameters.AddWithValue("@ExpirationDate", product.ExpirationDate);
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                connection.Close();
+
+                return rowsAffected > 0;
+            }
+        }
+
+        /// <summary>
+        /// Updates the quantity of a product in the inventory.
+        /// </summary>
+        /// <param name="productID">The ID of the product.</param>
+        /// <param name="quantity">The new quantity value.</param>
+        public void UpdateProductQuantity(int productID, int quantity)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "UPDATE Products SET Quantity = Quantity + @QuantityToAdd WHERE ProductID = @ProductID";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@QuantityToAdd", quantity);
+                command.Parameters.AddWithValue("@ProductID", productID);
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
         }
     }
 }

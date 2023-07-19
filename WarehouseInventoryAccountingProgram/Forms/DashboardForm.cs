@@ -29,8 +29,6 @@
         {
             var products = productRepository.GetAllProducts();
 
-            dgvProducts.DataSource = products;
-
             int totalProducts = products.Count;
             int totalQuantity = productRepository.GetTotalQuantity();
 
@@ -44,8 +42,7 @@
         private void btnInventory_Click(object sender, EventArgs e)
         {
             InventoryForm inventoryForm = new InventoryForm();
-            inventoryForm.Show();
-            this.Hide();
+            inventoryForm.ShowDialog();
         }
 
         /// <summary>
@@ -54,8 +51,7 @@
         private void btnStockEntry_Click(object sender, EventArgs e)
         {
             StockEntryForm stockEntryForm = new StockEntryForm();
-            stockEntryForm.Show();
-            this.Hide();
+            stockEntryForm.ShowDialog();
         }
 
         /// <summary>
@@ -64,8 +60,7 @@
         private void btnSales_Click(object sender, EventArgs e)
         {
             SalesForm salesForm = new SalesForm();
-            salesForm.Show();
-            this.Hide();
+            salesForm.ShowDialog();
         }
 
         /// <summary>
@@ -74,8 +69,35 @@
         private void btnPurchase_Click(object sender, EventArgs e)
         {
             PurchaseForm purchaseForm = new PurchaseForm();
-            purchaseForm.Show();
-            this.Hide();
+            purchaseForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Handles the button click event to navigate to the ReportsForm.
+        /// </summary>
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            // Navigate to the ReportsForm
+            ReportsForm reportsForm = new ReportsForm();
+            reportsForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Handles the button click event to navigate to the SettingsForm.
+        /// </summary>
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Handles the button click event to navigate to the HelpForm.
+        /// </summary>
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            HelpForm helpForm = new HelpForm();
+            helpForm.ShowDialog();
         }
     }
 }
