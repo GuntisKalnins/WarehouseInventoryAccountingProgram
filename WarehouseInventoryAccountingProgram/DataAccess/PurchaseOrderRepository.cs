@@ -42,5 +42,44 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
                 connection.Close();
             }
         }
+
+        public List<PurchaseOrder> GetAllPurchaseOrders()
+        {
+            List<PurchaseOrder> purchaseOrders = new List<PurchaseOrder>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Prepare the SQL query to retrieve all purchase orders
+                string query = "SELECT PurchaseOrderID, ProductID, SupplierID, Quantity, Cost, PurchaseDate FROM Purchases";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                // Execute the query and read the data
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    // Create a new PurchaseOrder object and populate its properties
+                    PurchaseOrder purchaseOrder = new PurchaseOrder
+                    {
+                        PurchaseOrderID = (int)reader["PurchaseOrderID"],
+                        ProductID = (int)reader["ProductID"],
+                        SupplierID = (int)reader["SupplierID"],
+                        Quantity = (int)reader["Quantity"],
+                        Cost = (decimal)reader["Cost"],
+                        PurchaseDate = (DateTime)reader["PurchaseDate"],
+                    };
+
+                    // Add the purchase order to the list
+                    purchaseOrders.Add(purchaseOrder);
+                }
+
+                reader.Close();
+                connection.Close();
+            }
+
+            return purchaseOrders;
+        }
     }
 }
