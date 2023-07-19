@@ -66,7 +66,7 @@ namespace WarehouseInventoryAccountingProgram.Forms
         {
             // Retrieve inventory data from the database
             List<Product> products = productRepository.GetAllProducts();
-
+            dgvReport.DataSource = products;
             // Display the inventory report
             // Your code to display the report goes here
             MessageBox.Show("Inventory report generated.");
@@ -76,6 +76,7 @@ namespace WarehouseInventoryAccountingProgram.Forms
         {
             // Retrieve sales data from the database
             List<Sale> sales = salesRepository.GetAllSales();
+            dgvReport.DataSource = sales;
 
             // Display the sales report
             // Your code to display the report goes here
@@ -86,10 +87,13 @@ namespace WarehouseInventoryAccountingProgram.Forms
         {
             // Retrieve purchase order data from the database
             List<PurchaseOrder> purchaseOrders = purchaseOrderRepository.GetAllPurchaseOrders();
+            dgvReport.DataSource = purchaseOrders;
 
             // Display the purchase report
             // Your code to display the report goes here
             MessageBox.Show("Purchase report generated.");
         }
+
+
     }
 }

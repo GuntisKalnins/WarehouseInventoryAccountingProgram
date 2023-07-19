@@ -52,7 +52,7 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
                 connection.Open();
 
                 // Prepare the SQL query to retrieve all purchase orders
-                string query = "SELECT PurchaseOrderID, ProductID, SupplierID, Quantity, Cost, PurchaseDate FROM Purchases";
+                string query = "SELECT PurchaseID, ProductID, SupplierID, Quantity, Cost, PurchaseDate FROM Purchases";
                 SqlCommand command = new SqlCommand(query, connection);
 
                 // Execute the query and read the data
@@ -63,7 +63,7 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
                     // Create a new PurchaseOrder object and populate its properties
                     PurchaseOrder purchaseOrder = new PurchaseOrder
                     {
-                        PurchaseOrderID = (int)reader["PurchaseOrderID"],
+                        PurchaseOrderID = (int)reader["PurchaseID"],
                         ProductID = (int)reader["ProductID"],
                         SupplierID = (int)reader["SupplierID"],
                         Quantity = (int)reader["Quantity"],

@@ -98,11 +98,11 @@
             // 
             // btnCreatePurchaseOrder
             // 
-            this.btnCreatePurchaseOrder.Location = new System.Drawing.Point(685, 28);
+            this.btnCreatePurchaseOrder.Location = new System.Drawing.Point(777, 28);
             this.btnCreatePurchaseOrder.Name = "btnCreatePurchaseOrder";
-            this.btnCreatePurchaseOrder.Size = new System.Drawing.Size(182, 23);
+            this.btnCreatePurchaseOrder.Size = new System.Drawing.Size(90, 23);
             this.btnCreatePurchaseOrder.TabIndex = 7;
-            this.btnCreatePurchaseOrder.Text = "Create Purchase Order";
+            this.btnCreatePurchaseOrder.Text = "Create";
             this.btnCreatePurchaseOrder.UseVisualStyleBackColor = true;
             this.btnCreatePurchaseOrder.Click += new System.EventHandler(this.btnCreatePurchaseOrder_Click);
             // 
