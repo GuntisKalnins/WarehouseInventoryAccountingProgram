@@ -2,11 +2,12 @@
 {
     using System.Configuration;
     using System.Data.SqlClient;
+    using WarehouseInventoryAccountingProgram.Interfaces;
 
     /// <summary>
     /// Class for accessing user data in the database.
     /// </summary>
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         private string connectionString;
 

@@ -1,14 +1,16 @@
 ﻿namespace WarehouseInventoryAccountingProgram.DataAccess
 {
+    using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Data.SqlClient;
+    using WarehouseInventoryAccountingProgram.Interfaces;
     using WarehouseInventoryAccountingProgram.Models;
 
     /// <summary>
     /// Data access for managing stock entries.
     /// </summary>
-    public class StockEntryRepository
+    public class StockEntryRepository : IStockEntryRepository
     {
         private string connectionString;
 
@@ -64,6 +66,16 @@
         /// <param name="stockEntry">The StockEntry object to be added.</param>
         public void AddStockEntry(StockEntry stockEntry)
         {
+            if (stockEntry.Quantity <= 0)
+            {
+                throw new ArgumentException("Quantity must be greater than 0.", nameof(stockEntry.Quantity));
+            }
+
+            if (stockEntry.ProductID <= 0)
+            {
+                throw new ArgumentException("Invalid ProductID.", nameof(stockEntry.ProductID));
+            }
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

@@ -113,6 +113,12 @@
     <Compile Include="Forms\StockEntryForm.Designer.cs">
       <DependentUpon>StockEntryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IProductRepository.cs" />
+    <Compile Include="Interfaces\IPurchaseOrderRepository.cs" />
+    <Compile Include="Interfaces\ISalesRepository.cs" />
+    <Compile Include="Interfaces\IStockEntryRepository.cs" />
+    <Compile Include="Interfaces\ISupplierRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\PurchaseOrder.cs" />
     <Compile Include="Models\Sale.cs" />
