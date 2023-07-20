@@ -8,8 +8,6 @@
 
     /// <summary>
     /// Form that displays the inventory of products.
-    /// Allows users to search, filter, and sort the inventory.
-    /// Provides options to add, edit, and delete products.
     /// </summary>
     public partial class InventoryForm : Form
     {
@@ -27,7 +25,6 @@
         }
 
         /// <summary>
-        /// Event handler for the InventoryForm load event.
         /// Loads and displays the inventory on the form.
         /// </summary>
         private void InventoryForm_Load(object sender, EventArgs e)
@@ -45,7 +42,6 @@
         }
 
         /// <summary>
-        /// Event handler for the add product button click.
         /// Opens the AddProductForm to add a new product to the inventory.
         /// </summary>
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -60,7 +56,6 @@
         }
 
         /// <summary>
-        /// Event handler for the edit product button click.
         /// Opens the EditProductForm to edit the selected product in the inventory.
         /// </summary>
         private void btnEditProduct_Click(object sender, EventArgs e)
@@ -85,7 +80,6 @@
         }
 
         /// <summary>
-        /// Event handler for the delete product button click.
         /// Deletes the selected product from the inventory.
         /// </summary>
         private void btnDeleteProduct_Click(object sender, EventArgs e)

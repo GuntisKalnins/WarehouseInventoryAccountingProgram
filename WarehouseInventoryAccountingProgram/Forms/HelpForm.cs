@@ -1,9 +1,12 @@
-﻿using System;
-using System.IO;
-using System.Windows.Forms;
-
-namespace WarehouseInventoryAccountingProgram.Forms
+﻿namespace WarehouseInventoryAccountingProgram.Forms
 {
+    using System;
+    using System.IO;
+    using System.Windows.Forms;
+
+    /// <summary>
+    /// HelpForm which allows users to view different help topics.
+    /// </summary>
     public partial class HelpForm : Form
     {
         private const string DocumentationFilePath = "./Text/documentation.txt";
@@ -17,7 +20,6 @@ namespace WarehouseInventoryAccountingProgram.Forms
 
         /// <summary>
         /// Load event handler for the Help/Documentation Form.
-        /// Initializes the form and loads the available options.
         /// </summary>
         private void HelpForm_Load(object sender, EventArgs e)
         {
@@ -29,7 +31,6 @@ namespace WarehouseInventoryAccountingProgram.Forms
         /// </summary>
         private void LoadOptions()
         {
-            // Add options to the ComboBox control
             cmbOptions.Items.Add("Documentation");
             cmbOptions.Items.Add("FAQs");
             cmbOptions.Items.Add("Troubleshooting");
@@ -37,7 +38,6 @@ namespace WarehouseInventoryAccountingProgram.Forms
 
         /// <summary>
         /// Event handler for the selected index changed event of the ComboBox control.
-        /// Shows the selected content in the textbox.
         /// </summary>
         private void cmbOptions_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -73,7 +73,6 @@ namespace WarehouseInventoryAccountingProgram.Forms
             }
             catch (IOException ex)
             {
-                // Handle any errors that may occur while reading the files
                 MessageBox.Show($"Error loading content: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

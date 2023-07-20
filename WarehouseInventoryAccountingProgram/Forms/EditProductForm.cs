@@ -6,7 +6,7 @@
     using WarehouseInventoryAccountingProgram.Models;
 
     /// <summary>
-    /// Represents the form for editing a product in the inventory.
+    /// Form for editing a product in the inventory.
     /// </summary>
     public partial class EditProductForm : Form
     {

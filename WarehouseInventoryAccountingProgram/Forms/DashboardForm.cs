@@ -17,6 +17,9 @@
             productRepository = new ProductRepository();
         }
 
+        /// <summary>
+        /// Loading event of the DashboardForm. Loads the product information from the database and displays it on the dashboard.
+        /// </summary>
         private void DashboardForm_Load(object sender, EventArgs e)
         {
             LoadProductInformation();
@@ -37,7 +40,7 @@
         }
 
         /// <summary>
-        /// Handles the button click event to navigate to the InventoryForm.
+        /// Button click event to navigate to the InventoryForm.
         /// </summary>
         private void btnInventory_Click(object sender, EventArgs e)
         {
@@ -46,7 +49,7 @@
         }
 
         /// <summary>
-        /// Handles the button click event to navigate to the StockEntryForm.
+        /// Button click event to navigate to the StockEntryForm.
         /// </summary>
         private void btnStockEntry_Click(object sender, EventArgs e)
         {
@@ -55,7 +58,7 @@
         }
 
         /// <summary>
-        /// Handles the button click event to navigate to the SalesForm.
+        /// Button click event to navigate to the SalesForm.
         /// </summary>
         private void btnSales_Click(object sender, EventArgs e)
         {
@@ -64,7 +67,7 @@
         }
 
         /// <summary>
-        /// Handles the button click event to navigate to the PurchaseForm.
+        /// Button click event to navigate to the PurchaseForm.
         /// </summary>
         private void btnPurchase_Click(object sender, EventArgs e)
         {
@@ -73,17 +76,16 @@
         }
 
         /// <summary>
-        /// Handles the button click event to navigate to the ReportsForm.
+        /// Button click event to navigate to the ReportsForm.
         /// </summary>
         private void btnReports_Click(object sender, EventArgs e)
         {
-            // Navigate to the ReportsForm
             ReportsForm reportsForm = new ReportsForm();
             reportsForm.ShowDialog();
         }
 
         /// <summary>
-        /// Handles the button click event to navigate to the HelpForm.
+        /// Button click event to navigate to the HelpForm.
         /// </summary>
         private void btnHelp_Click(object sender, EventArgs e)
         {

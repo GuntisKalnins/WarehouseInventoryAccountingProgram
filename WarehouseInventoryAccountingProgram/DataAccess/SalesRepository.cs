@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using WarehouseInventoryAccountingProgram.Models;
-
-namespace WarehouseInventoryAccountingProgram.DataAccess
+﻿namespace WarehouseInventoryAccountingProgram.DataAccess
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Data.SqlClient;
+    using WarehouseInventoryAccountingProgram.Models;
+
+    /// <summary>
+    /// Data access for sales data.
+    /// </summary>
     public class SalesRepository
     {
         private string connectionString;
 
         /// <summary>
-        /// Initializes a new instance of the SalesRepository class with the provided connection string.
+        /// Initializes a new instance of the SalesRepository.
         /// </summary>
         public SalesRepository()
         {
@@ -21,7 +24,7 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
         /// <summary>
         /// Adds a new sale to the database.
         /// </summary>
-        /// <param name="sale">The sale object representing the sale to be added.</param>
+        /// <param name="sale">The sale object to be added.</param>
         public void AddSale(Sale sale)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -43,6 +46,10 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
             }
         }
 
+        /// <summary>
+        /// Retrieves all sales from the database.
+        /// </summary>
+        /// <returns>A list of Sale objects representing all sales.</returns>
         public List<Sale> GetAllSales()
         {
             List<Sale> sales = new List<Sale>();
@@ -51,16 +58,13 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
             {
                 connection.Open();
 
-                // Prepare the SQL query to retrieve all sales
                 string query = "SELECT SaleID, ProductID, SaleDate, CustomerName, Quantity, TotalAmount FROM Sales";
                 SqlCommand command = new SqlCommand(query, connection);
 
-                // Execute the query and read the data
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    // Create a new Sale object and populate its properties
                     Sale sale = new Sale
                     {
                         SaleID = (int)reader["SaleID"],
@@ -71,7 +75,6 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
                         TotalAmount = (decimal)reader["TotalAmount"]
                     };
 
-                    // Add the sale to the list
                     sales.Add(sale);
                 }
 

@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using WarehouseInventoryAccountingProgram.Models;
-
-namespace WarehouseInventoryAccountingProgram.DataAccess
+﻿namespace WarehouseInventoryAccountingProgram.DataAccess
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Data.SqlClient;
+    using WarehouseInventoryAccountingProgram.Models;
+
+    /// <summary>
+    /// Data access for purchase orders.
+    /// </summary>
     public class PurchaseOrderRepository
     {
         private string connectionString;
 
-        /// <summary>
-        /// Handles the data access operations for purchase orders.
-        /// </summary>
         public PurchaseOrderRepository()
         {
             connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
@@ -43,6 +43,10 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
             }
         }
 
+        /// <summary>
+        /// Retrieves all purchase orders from the database.
+        /// </summary>
+        /// <returns>A list of purchase orders.</returns>
         public List<PurchaseOrder> GetAllPurchaseOrders()
         {
             List<PurchaseOrder> purchaseOrders = new List<PurchaseOrder>();

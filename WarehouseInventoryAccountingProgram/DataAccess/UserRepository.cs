@@ -23,7 +23,6 @@
         /// </summary>
         /// <param name="username">The username entered by the user.</param>
         /// <param name="password">The password entered by the user.</param>
-        /// <returns>True if the user is valid, false otherwise.</returns>
         public bool ValidateUser(string username, string password)
         {
             bool isValidUser = false;
