@@ -21,11 +21,8 @@
         }
 
         /// <summary>
-        /// Handles the button click event for the login button.
-        /// Validates the user's login information against the database.
+        /// Handles the button click and validates the user's login information against the database.
         /// </summary>
-        /// <param name="sender">The object that triggered the event.</param>
-        /// <param name="e">The event arguments.</param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;

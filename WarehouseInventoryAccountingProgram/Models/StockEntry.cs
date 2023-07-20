@@ -3,32 +3,32 @@
     using System;
 
     /// <summary>
-    /// Represents a stock entry for a product.
+    /// Stock entry for a product.
     /// </summary>
     public class StockEntry
     {
         /// <summary>
-        /// Gets or sets the ID of the stock entry.
+        /// ID of the stock entry.
         /// </summary>
         public int StockEntryID { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of the associated product.
+        /// ID of the associated product.
         /// </summary>
         public int ProductID { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of the associated supplier.
+        /// ID of the associated supplier.
         /// </summary>
         public int SupplierID { get; set; }
 
         /// <summary>
-        /// Gets or sets the entry date of the stock entry.
+        /// Entry date of the stock entry.
         /// </summary>
         public DateTime EntryDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the quantity of the stock entry.
+        /// Quantity of the stock entry.
         /// </summary>
         public int Quantity { get; set; }
     }

@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using WarehouseInventoryAccountingProgram.DataAccess;
-using WarehouseInventoryAccountingProgram.Models;
-
-namespace WarehouseInventoryAccountingProgram.Forms
+﻿namespace WarehouseInventoryAccountingProgram.Forms
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Windows.Forms;
+    using WarehouseInventoryAccountingProgram.DataAccess;
+    using WarehouseInventoryAccountingProgram.Models;
+
     /// <summary>
-    /// Represents the Purchase Form for creating purchase orders.
+    /// Purchase Form for creating purchase orders.
     /// </summary>
     public partial class PurchaseForm : Form
     {
@@ -26,7 +26,7 @@ namespace WarehouseInventoryAccountingProgram.Forms
         }
 
         /// <summary>
-        /// Handles the loading of the Purchase Form.
+        /// Loads products and suppliers into corresponding combobox controls on form load.
         /// </summary>
         private void PurchaseForm_Load(object sender, EventArgs e)
         {
@@ -34,6 +34,9 @@ namespace WarehouseInventoryAccountingProgram.Forms
             LoadSuppliers();
         }
 
+        /// <summary>
+        /// Loads all products and sets the data source for product combobox.
+        /// </summary>
         private void LoadProducts()
         {
             products = productRepository.GetAllProducts();
@@ -43,6 +46,9 @@ namespace WarehouseInventoryAccountingProgram.Forms
             cmbProduct.ValueMember = "ProductID";
         }
 
+        /// <summary>
+        /// Loads all suppliers and sets the data source for supplier combobox.
+        /// </summary>
         private void LoadSuppliers()
         {
             suppliers = supplierRepository.GetAllSuppliers();
@@ -52,8 +58,9 @@ namespace WarehouseInventoryAccountingProgram.Forms
             cmbSupplier.ValueMember = "SupplierID";
         }
 
+
         /// <summary>
-        /// Handles the click event for the Create Order button.
+        /// Creates a new purchase and adds the purchase order to the repository, updates the product quantity, and displays a success message.
         /// </summary>
         private void btnCreateOrder_Click(object sender, EventArgs e)
         {
@@ -83,6 +90,9 @@ namespace WarehouseInventoryAccountingProgram.Forms
             ResetFields();
         }
 
+        /// <summary>
+        /// Validates whether all required fields are filled.
+        /// </summary>
         private bool ValidateFields()
         {
             if (cmbProduct.SelectedIndex == -1 || cmbSupplier.SelectedIndex == -1 || numQuantity.Value == 0 || numCost.Value == 0)
@@ -94,6 +104,9 @@ namespace WarehouseInventoryAccountingProgram.Forms
             return true;
         }
 
+        /// <summary>
+        /// Resets the form fields to their initial state.
+        /// </summary>
         private void ResetFields()
         {
             cmbProduct.SelectedIndex = -1;

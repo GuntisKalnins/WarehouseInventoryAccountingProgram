@@ -1,14 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using WarehouseInventoryAccountingProgram.Models;
-
-namespace WarehouseInventoryAccountingProgram.DataAccess
+﻿namespace WarehouseInventoryAccountingProgram.DataAccess
 {
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Data.SqlClient;
+    using WarehouseInventoryAccountingProgram.Models;
+
+    /// <summary>
+    /// Data access for managing stock entries.
+    /// </summary>
     public class StockEntryRepository
     {
         private string connectionString;
 
+        /// <summary>
+        /// Initializes a new instance of the StockEntryRepository.
+        /// </summary>
         public StockEntryRepository()
         {
             connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
@@ -55,7 +61,7 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
         /// <summary>
         /// Adds a stock entry to the database and updates the product quantity in the inventory.
         /// </summary>
-        /// <param name="stockEntry">The StockEntry object representing the stock entry to be added.</param>
+        /// <param name="stockEntry">The StockEntry object to be added.</param>
         public void AddStockEntry(StockEntry stockEntry)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Windows.Forms;
-using WarehouseInventoryAccountingProgram.DataAccess;
-using WarehouseInventoryAccountingProgram.Models;
-
-namespace WarehouseInventoryAccountingProgram.Forms
+﻿namespace WarehouseInventoryAccountingProgram.Forms
 {
+    using System;
+    using System.Windows.Forms;
+    using WarehouseInventoryAccountingProgram.DataAccess;
+    using WarehouseInventoryAccountingProgram.Models;
+
     /// <summary>
     /// Form for adding a new product to the inventory.
     /// </summary>
@@ -18,7 +18,6 @@ namespace WarehouseInventoryAccountingProgram.Forms
         }
 
         /// <summary>
-        /// Event handler for the "Add Product" button click.
         /// Adds the entered product information to the database.
         /// </summary>
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -57,7 +56,6 @@ namespace WarehouseInventoryAccountingProgram.Forms
         }
 
         /// <summary>
-        /// Event handler for the "Cancel" button click.
         /// Closes the form without adding the product.
         /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)

@@ -14,7 +14,7 @@
         private string connectionString;
 
         /// <summary>
-        /// Initializes a new instance of the ProductRepository class.
+        /// Initializes a new instance of the ProductRepository.
         /// </summary>
         public ProductRepository()
         {
@@ -91,7 +91,6 @@
         /// Deletes a product from the database based on the provided product ID.
         /// </summary>
         /// <param name="productID">The ID of the product to be deleted.</param>
-        /// <returns>True if the product was deleted successfully; otherwise, false.</returns>
         public bool DeleteProduct(int productID)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -115,7 +114,6 @@
         /// Updates a product in the database.
         /// </summary>
         /// <param name="product">The product to be updated.</param>
-        /// <returns><c>true</c> if the product is successfully updated; otherwise, <c>false</c>.</returns>
         public bool UpdateProduct(Product product)
         {
             bool isUpdated = false;
@@ -150,7 +148,6 @@
         /// Adds a new product to the database.
         /// </summary>
         /// <param name="product">The product to add.</param>
-        /// <returns>True if the product is added successfully, false otherwise.</returns>
         public bool AddProduct(Product product)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

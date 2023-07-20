@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using WarehouseInventoryAccountingProgram.DataAccess;
-using WarehouseInventoryAccountingProgram.Models;
-
-namespace WarehouseInventoryAccountingProgram.Forms
+﻿namespace WarehouseInventoryAccountingProgram.Forms
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Windows.Forms;
+    using WarehouseInventoryAccountingProgram.DataAccess;
+    using WarehouseInventoryAccountingProgram.Models;
+
     /// <summary>
     /// Class for handling stock entry data access.
     /// </summary>
@@ -15,6 +15,9 @@ namespace WarehouseInventoryAccountingProgram.Forms
         private StockEntryRepository stockEntryRepository; 
         private List<Product> products;
 
+        /// <summary>
+        /// Initializes the form and repositories.
+        /// </summary>
         public StockEntryForm()
         {
             InitializeComponent();
@@ -22,12 +25,18 @@ namespace WarehouseInventoryAccountingProgram.Forms
             stockEntryRepository = new StockEntryRepository();
         }
 
+        /// <summary>
+        /// Loads the products and suppliers data.
+        /// </summary>
         private void StockEntryForm_Load(object sender, EventArgs e)
         {
             LoadProducts();
             LoadSuppliers();
         }
 
+        /// <summary>
+        /// Loads products from the database and binds them to the combo box.
+        /// </summary>
         private void LoadProducts()
         {
             products = productRepository.GetAllProducts();
@@ -37,6 +46,9 @@ namespace WarehouseInventoryAccountingProgram.Forms
             cmbProduct.ValueMember = "ProductID";
         }
 
+        /// <summary>
+        /// Loads suppliers from the database and binds them to the combo box.
+        /// </summary>
         private void LoadSuppliers()
         {
             List<Supplier> suppliers = stockEntryRepository.GetAllSuppliers();
@@ -47,7 +59,6 @@ namespace WarehouseInventoryAccountingProgram.Forms
         }
 
         /// <summary>
-        /// Event handler for the "Submit" button click.
         /// Adds the entered product information to the database.
         /// </summary>
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -75,6 +86,9 @@ namespace WarehouseInventoryAccountingProgram.Forms
             ResetFields();
         }
 
+        /// <summary>
+        /// Validates the form fields before submitting the stock entry.
+        /// </summary>
         private bool ValidateFields()
         {
             if (cmbProduct.SelectedIndex == -1 || cmbSupplier.SelectedIndex == -1 || Convert.ToInt32(txtQuantity.Text.Trim()) == 0)
@@ -86,6 +100,9 @@ namespace WarehouseInventoryAccountingProgram.Forms
             return true;
         }
 
+        /// <summary>
+        /// Resets all form fields to their default values.
+        /// </summary>
         private void ResetFields()
         {
             cmbProduct.SelectedIndex = -1;
