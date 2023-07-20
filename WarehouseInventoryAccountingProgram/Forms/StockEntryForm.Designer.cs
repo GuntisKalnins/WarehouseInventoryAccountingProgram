@@ -129,8 +129,11 @@
             this.Controls.Add(this.dtpEntryDate);
             this.Controls.Add(this.cmbSupplier);
             this.Controls.Add(this.cmbProduct);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "StockEntryForm";
-            this.Text = "StockEntryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Stock Entry";
             this.Load += new System.EventHandler(this.StockEntryForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

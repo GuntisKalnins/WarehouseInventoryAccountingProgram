@@ -99,8 +99,11 @@
             this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.numQuantity);
             this.Controls.Add(this.dgvProducts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SalesForm";
-            this.Text = "SalesForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sales";
             this.Load += new System.EventHandler(this.SalesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();

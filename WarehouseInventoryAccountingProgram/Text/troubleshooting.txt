@@ -1,0 +1,19 @@
+﻿Troubleshooting and Common Issues
+
+1. Unable to log in:
+   - Make sure you are using the correct username and password.
+   - Check your internet connection to ensure the program can connect to the database.
+
+2. Inventory not updating after sales:
+   - Verify that you have processed the sales correctly and the quantity sold is accurate.
+   - Check for any error messages that might indicate database connectivity issues.
+
+3. Purchase order not showing in the Purchase form:
+   - Ensure the purchase order has a status of "Pending."
+   - Check if the purchase order was created with the correct supplier and product information.
+
+4. Reports not generating:
+   - Double-check that you have selected the correct report option from the Reports form.
+   - Verify that the data required for the report is available in the database.
+
+If you encounter any other issues, please contact our support team for assistance.

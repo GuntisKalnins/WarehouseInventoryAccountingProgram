@@ -127,8 +127,11 @@
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.txtProductName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "EditProductForm";
-            this.Text = "EditForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Edit Product";
             this.ResumeLayout(false);
             this.PerformLayout();
 

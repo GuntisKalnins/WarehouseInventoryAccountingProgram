@@ -107,12 +107,6 @@
     <Compile Include="Forms\SalesForm.Designer.cs">
       <DependentUpon>SalesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\StockEntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +129,9 @@
     <EmbeddedResource Include="Forms\EditProductForm.resx">
       <DependentUpon>EditProductForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HelpForm.resx">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\InventoryForm.resx">
       <DependentUpon>InventoryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PurchaseForm.resx">
       <DependentUpon>PurchaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportsForm.resx">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SalesForm.resx">
       <DependentUpon>SalesForm.cs</DependentUpon>
@@ -171,6 +171,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Text\documentation.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Text\faqs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Text\troubleshooting.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

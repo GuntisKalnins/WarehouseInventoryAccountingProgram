@@ -1,0 +1,19 @@
+﻿Warehouse Inventory Accounting Program Documentation
+
+Welcome to the Warehouse Inventory Accounting Program!
+
+This program is designed to help grocery stores manage their inventory.
+
+Features:
+- Inventory Management: Add, edit, and delete products from the inventory.
+- Sales Processing: Record sales transactions and update inventory accordingly.
+- Purchase Orders: Create purchase orders to restock inventory.
+- Reports: Generate reports to analyze inventory, sales, and purchases.
+
+Getting Started:
+1. Log in using your credentials.
+2. Use the navigation menu to access different forms and features.
+3. Make sure to keep track of sales and restock products as needed.
+4. Utilize the reports for data analysis and decision-making.
+
+Feel free to explore and enjoy the program!

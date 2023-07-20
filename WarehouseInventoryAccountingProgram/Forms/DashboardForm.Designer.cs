@@ -37,7 +37,6 @@
             this.btnSales = new System.Windows.Forms.Button();
             this.btnPurchase = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -125,19 +124,9 @@
             this.btnReports.UseVisualStyleBackColor = true;
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
-            // btnSettings
-            // 
-            this.btnSettings.Location = new System.Drawing.Point(200, 89);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(88, 49);
-            this.btnSettings.TabIndex = 11;
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.UseVisualStyleBackColor = true;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            // 
             // btnHelp
             // 
-            this.btnHelp.Location = new System.Drawing.Point(12, 144);
+            this.btnHelp.Location = new System.Drawing.Point(201, 89);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(88, 49);
             this.btnHelp.TabIndex = 12;
@@ -149,9 +138,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 205);
+            this.ClientSize = new System.Drawing.Size(301, 151);
             this.Controls.Add(this.btnHelp);
-            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnReports);
             this.Controls.Add(this.btnPurchase);
             this.Controls.Add(this.btnSales);
@@ -161,7 +149,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblTotalProducts);
             this.Controls.Add(this.lblForTotalProducts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "DashboardForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.DashboardForm_Load);
             this.ResumeLayout(false);
@@ -179,7 +170,6 @@
         private System.Windows.Forms.Button btnSales;
         private System.Windows.Forms.Button btnPurchase;
         private System.Windows.Forms.Button btnReports;
-        private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnHelp;
     }
 }

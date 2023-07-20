@@ -1,0 +1,18 @@
+﻿Frequently Asked Questions (FAQs)
+
+Q: How do I add a new product to the inventory?
+A: To add a new product, go to the Inventory form and click the "Add Product" button. Fill in the product details and click "Save" to add it to the inventory.
+
+Q: How can I record a sales transaction?
+A: Go to the Sales form and either scan the product barcode or select it from the list. Enter the quantity sold and customer details, then click "Process Sale" to record the transaction.
+
+Q: Can I edit or delete a purchase order?
+A: Yes, you can edit a purchase order before it is marked as received. To delete a purchase order, it must be in a pending status.
+
+Q: How can I generate an inventory report?
+A: Navigate to the Reports form, choose "Inventory Report" from the options, and click the "Generate Report" button.
+
+Q: What happens when a product reaches its expiration date?
+A: Expired products are automatically flagged in the inventory and should not be sold. Consider restocking or disposing of expired items.
+
+If you have any other questions, please don't hesitate to contact our support team!

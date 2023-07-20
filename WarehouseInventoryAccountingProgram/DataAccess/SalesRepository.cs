@@ -42,5 +42,44 @@ namespace WarehouseInventoryAccountingProgram.DataAccess
                 connection.Close();
             }
         }
+
+        public List<Sale> GetAllSales()
+        {
+            List<Sale> sales = new List<Sale>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Prepare the SQL query to retrieve all sales
+                string query = "SELECT SaleID, ProductID, SaleDate, CustomerName, Quantity, TotalAmount FROM Sales";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                // Execute the query and read the data
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    // Create a new Sale object and populate its properties
+                    Sale sale = new Sale
+                    {
+                        SaleID = (int)reader["SaleID"],
+                        ProductID = (int)reader["ProductID"],
+                        SaleDate = (DateTime)reader["SaleDate"],
+                        CustomerName = (string)reader["CustomerName"],
+                        Quantity = (int)reader["Quantity"],
+                        TotalAmount = (decimal)reader["TotalAmount"]
+                    };
+
+                    // Add the sale to the list
+                    sales.Add(sale);
+                }
+
+                reader.Close();
+                connection.Close();
+            }
+
+            return sales;
+        }
     }
 }

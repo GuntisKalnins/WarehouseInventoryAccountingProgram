@@ -25,7 +25,7 @@ namespace WarehouseInventoryAccountingProgram.Forms
         {
             string productName = txtProductName.Text.Trim();
             int quantity = Convert.ToInt32(txtQuantity.Text.Trim());
-            decimal price = Convert.ToInt32(txtPrice.Text.Trim());
+            decimal price = Convert.ToDecimal(txtPrice.Text.Trim());
             DateTime expirationDate = dtpExpirationDate.Value;
 
             if (string.IsNullOrWhiteSpace(productName))
