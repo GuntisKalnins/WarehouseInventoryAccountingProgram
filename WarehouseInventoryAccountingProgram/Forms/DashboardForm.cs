@@ -83,15 +83,6 @@
         }
 
         /// <summary>
-        /// Handles the button click event to navigate to the SettingsForm.
-        /// </summary>
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            SettingsForm settingsForm = new SettingsForm();
-            settingsForm.ShowDialog();
-        }
-
-        /// <summary>
         /// Handles the button click event to navigate to the HelpForm.
         /// </summary>
         private void btnHelp_Click(object sender, EventArgs e)
