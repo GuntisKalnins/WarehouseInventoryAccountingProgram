@@ -4,12 +4,13 @@
     using System.Collections.Generic;
     using System.Configuration;
     using System.Data.SqlClient;
+    using WarehouseInventoryAccountingProgram.Interfaces;
     using WarehouseInventoryAccountingProgram.Models;
 
     /// <summary>
     /// Provides data access methods for managing products.
     /// </summary>
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
         private string connectionString;
 

@@ -4,12 +4,13 @@
     using System.Collections.Generic;
     using System.Configuration;
     using System.Data.SqlClient;
+    using WarehouseInventoryAccountingProgram.Interfaces;
     using WarehouseInventoryAccountingProgram.Models;
 
     /// <summary>
     /// Data access for purchase orders.
     /// </summary>
-    public class PurchaseOrderRepository
+    public class PurchaseOrderRepository : IPurchaseOrderRepository
     {
         private string connectionString;
 
@@ -24,6 +25,11 @@
         /// <param name="purchaseOrder">The purchase order to add.</param>
         public void AddPurchaseOrder(PurchaseOrder purchaseOrder)
         {
+            if (purchaseOrder == null || purchaseOrder.ProductID <= 0 || purchaseOrder.SupplierID <= 0 || purchaseOrder.Quantity <= 0 || purchaseOrder.Cost <= 0 || purchaseOrder.PurchaseDate == DateTime.MinValue)
+            {
+                throw new ArgumentException("Invalid purchase order data");
+            }
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -40,6 +46,7 @@
                 command.ExecuteNonQuery();
 
                 connection.Close();
+
             }
         }
 

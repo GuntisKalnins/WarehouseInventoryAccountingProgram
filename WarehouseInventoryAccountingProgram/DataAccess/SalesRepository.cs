@@ -4,12 +4,13 @@
     using System.Collections.Generic;
     using System.Configuration;
     using System.Data.SqlClient;
+    using WarehouseInventoryAccountingProgram.Interfaces;
     using WarehouseInventoryAccountingProgram.Models;
 
     /// <summary>
     /// Data access for sales data.
     /// </summary>
-    public class SalesRepository
+    public class SalesRepository : ISalesRepository
     {
         private string connectionString;
 

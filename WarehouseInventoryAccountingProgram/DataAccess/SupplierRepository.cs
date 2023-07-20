@@ -1,12 +1,12 @@
 ﻿namespace WarehouseInventoryAccountingProgram.DataAccess
 {
-    using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Data.SqlClient;
+    using WarehouseInventoryAccountingProgram.Interfaces;
     using WarehouseInventoryAccountingProgram.Models;
 
-    public class SupplierRepository
+    public class SupplierRepository : ISupplierRepository
     {
         private string connectionString;
 
