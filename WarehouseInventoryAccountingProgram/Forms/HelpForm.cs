@@ -1,20 +1,81 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace WarehouseInventoryAccountingProgram.Forms
 {
     public partial class HelpForm : Form
     {
+        private const string DocumentationFilePath = "./Text/documentation.txt";
+        private const string FAQsFilePath = "./Text/faqs.txt";
+        private const string TroubleshootingFilePath = "./Text/troubleshooting.txt";
+
         public HelpForm()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Load event handler for the Help/Documentation Form.
+        /// Initializes the form and loads the available options.
+        /// </summary>
+        private void HelpForm_Load(object sender, EventArgs e)
+        {
+            LoadOptions();
+        }
+
+        /// <summary>
+        /// Loads the available options into the ComboBox control.
+        /// </summary>
+        private void LoadOptions()
+        {
+            // Add options to the ComboBox control
+            cmbOptions.Items.Add("Documentation");
+            cmbOptions.Items.Add("FAQs");
+            cmbOptions.Items.Add("Troubleshooting");
+        }
+
+        /// <summary>
+        /// Event handler for the selected index changed event of the ComboBox control.
+        /// Shows the selected content in the textbox.
+        /// </summary>
+        private void cmbOptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowSelectedContent();
+        }
+
+        /// <summary>
+        /// Shows the selected content in the textbox based on the selected option in the ComboBox.
+        /// </summary>
+        private void ShowSelectedContent()
+        {
+            try
+            {
+                string selectedOption = cmbOptions.SelectedItem.ToString();
+                string content = "";
+
+                switch (selectedOption)
+                {
+                    case "Documentation":
+                        content = File.ReadAllText(DocumentationFilePath);
+                        break;
+                    case "FAQs":
+                        content = File.ReadAllText(FAQsFilePath);
+                        break;
+                    case "Troubleshooting":
+                        content = File.ReadAllText(TroubleshootingFilePath);
+                        break;
+                    default:
+                        break;
+                }
+
+                txtContent.Text = content;
+            }
+            catch (IOException ex)
+            {
+                // Handle any errors that may occur while reading the files
+                MessageBox.Show($"Error loading content: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

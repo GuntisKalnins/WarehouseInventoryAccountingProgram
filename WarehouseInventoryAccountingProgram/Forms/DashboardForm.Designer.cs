@@ -149,7 +149,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblTotalProducts);
             this.Controls.Add(this.lblForTotalProducts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "DashboardForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.DashboardForm_Load);
             this.ResumeLayout(false);

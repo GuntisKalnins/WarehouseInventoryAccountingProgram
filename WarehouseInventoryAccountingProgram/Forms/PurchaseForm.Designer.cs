@@ -154,8 +154,11 @@
             this.Controls.Add(this.numQuantity);
             this.Controls.Add(this.cmbProduct);
             this.Controls.Add(this.dgvProducts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "PurchaseForm";
-            this.Text = "PurchaseForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Purchase";
             this.Load += new System.EventHandler(this.PurchaseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();

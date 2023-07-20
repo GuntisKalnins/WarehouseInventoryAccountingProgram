@@ -82,8 +82,11 @@
             this.Controls.Add(this.btnEditProduct);
             this.Controls.Add(this.btnDeleteProduct);
             this.Controls.Add(this.dgvInventory);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "InventoryForm";
-            this.Text = "InventoryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Inventory";
             this.Load += new System.EventHandler(this.InventoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
             this.ResumeLayout(false);

@@ -139,8 +139,11 @@
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.txtProductName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AddProductForm";
-            this.Text = "AddProductForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Add Product";
             this.ResumeLayout(false);
             this.PerformLayout();
 
