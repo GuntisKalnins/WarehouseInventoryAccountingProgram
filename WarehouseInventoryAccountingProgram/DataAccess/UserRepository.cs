@@ -2,6 +2,7 @@
 {
     using System.Configuration;
     using System.Data.SqlClient;
+    using WarehouseInventoryAccountingProgram.Helpers.DataAccess;
     using WarehouseInventoryAccountingProgram.Interfaces;
 
     /// <summary>
@@ -20,7 +21,7 @@
         }
 
         /// <summary>
-        /// Validates the user's login information against the database.
+        /// Validates the user login information against the database.
         /// </summary>
         /// <param name="username">The username entered by the user.</param>
         /// <param name="password">The password entered by the user.</param>
@@ -32,23 +33,45 @@
             {
                 connection.Open();
 
-                string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
+                string query = "SELECT Password FROM Users WHERE Username = @Username";
                 SqlCommand command = new SqlCommand(query, connection);
-
                 command.Parameters.AddWithValue("@Username", username);
-                command.Parameters.AddWithValue("@Password", password);
 
-                int count = (int)command.ExecuteScalar();
+                string Password = command.ExecuteScalar()?.ToString();
 
-                if (count > 0)
+                if (!string.IsNullOrEmpty(password))
                 {
-                    isValidUser = true;
+                    isValidUser = PasswordHelper.ValidatePassword(password, password);
                 }
 
                 connection.Close();
             }
 
             return isValidUser;
+        }
+
+        /// <summary>
+        /// Registers a new user in the database.
+        /// </summary>
+        /// <param name="username">The username of the new user.</param>
+        /// <param name="password">The hashed password of the new user.</param>
+        public bool RegisterUser(string username, string password)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "INSERT INTO Users (Username, Password) VALUES (@Username, @Password)";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Username", username);
+                command.Parameters.AddWithValue("@Password", password);
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                connection.Close();
+
+                return rowsAffected > 0;
+            }
         }
     }
 }
