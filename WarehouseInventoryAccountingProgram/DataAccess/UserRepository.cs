@@ -37,11 +37,11 @@
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Username", username);
 
-                string Password = command.ExecuteScalar()?.ToString();
+                string storedPassword = command.ExecuteScalar()?.ToString();
 
-                if (!string.IsNullOrEmpty(password))
+                if (!string.IsNullOrEmpty(storedPassword))
                 {
-                    isValidUser = PasswordHelper.ValidatePassword(password, password);
+                    isValidUser = PasswordHelper.ValidatePassword(password, storedPassword);
                 }
 
                 connection.Close();
